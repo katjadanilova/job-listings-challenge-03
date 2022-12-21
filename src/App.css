@@ -1,0 +1,122 @@
+:root {
+    --background-color: hsl(180, 52%, 96%);
+    --filter-tablets-color: hsl(180, 31%, 95%);
+    --dark-grey: hsl(180, 8%, 52%);
+    --very-dark-grey: hsl(180, 14%, 20%);
+    --tag-color: #5ca4a0;
+}
+
+.app {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listings {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-bottom: 5em;
+}
+
+.listing {
+    width: 1000px;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5em;
+    position: relative;
+    box-shadow: rgba(36, 114, 131, 0.09) 0 4px 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-side {
+    display: flex;
+}
+
+.featured-line {
+    width: 0.4em;
+    height: 100%;
+    background-color: var(--tag-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+
+.information {
+    display: flex;
+    gap: 1em;
+}
+
+.details {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
+.details h3{
+    margin: 0;
+}
+
+.details h3:hover {
+   color: var(--tag-color);
+    cursor: pointer;
+}
+
+
+
+.company {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.company-name {
+    color: var(--tag-color)
+}
+
+.new-tag {
+    background-color: var(--tag-color);
+    color: white;
+    padding: 0.5em;
+    border-radius: 1em;
+    font-size: 0.8em;
+}
+
+.featured-tag{
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    border-radius: 1em;
+    font-size: 0.8em;
+}
+
+.other-details {
+    display: flex;
+    gap: 0.8em;
+    color: var(--dark-grey);
+    align-items: center;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.tag {
+    color: var(--tag-color);
+    background-color: var(--filter-tablets-color);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.tag:hover {
+    background-color: var(--tag-color);
+    color: white;
+    cursor: pointer;
+}
