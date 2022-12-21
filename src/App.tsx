@@ -18,13 +18,9 @@ type ListingProps = {
     new: boolean,
     featured: boolean,
     position: string,
-    role: string,
-    level: string,
     postedAt: string,
     contract: string,
     location: string,
-    languages: string[],
-    tools: string[],
     tags: string[]
 }
 
@@ -34,15 +30,13 @@ function Tag(props: TagProps) {
     </div>
 }
 
-function Listing(props: ListingProps) {
+function ListingInfo(props: ListingProps) {
 
     return <div className="left-side">
-
         {props.featured && <div className="featured-line"></div>}
-
         <div className="information">
             <div className="logo">
-                <img src={props.logo} alt={props.company + "logo"}></img>
+                <img src={props.logo} alt={props.company + " logo"}></img>
             </div>
             <div className="details">
                 <div className="company">
@@ -58,15 +52,10 @@ function Listing(props: ListingProps) {
                     <CircleIcon sx={{fontSize: "5px", color: "#d3d3d3"}}/>
                     <p>{props.location}</p>
                 </div>
-
             </div>
-
         </div>
     </div>
-
-
 }
-
 
 function App() {
     const [tags, setTags] = useState<string[]>([])
@@ -82,76 +71,58 @@ function App() {
         setTags(updatedTags)
     }
 
-    const clearAllTags = () => {
-        setTags([])
-    }
-
     const cleanData = () => {
         if (tags.length) {
             return data.filter(obj =>
                 tags.every(str => obj.tools.includes(str) ||
-                    obj.languages.includes(str) || str === obj.level || str === obj.role));
+                    obj.languages.includes(str) ||
+                    str === obj.level || str === obj.role));
         }
         return [...data]
     }
 
     const filterTab = <div className="filter-tab">
-
-        <div className="tags">
-        {
-            tags.map(it => <div className="tab-tag" key={tags.indexOf(it)}>
-                <div className="tab-tag-name">{it}</div>
-                <div className="remove-icon" onClick={() => removeTag(it)}>
-                    <img src={removeIcon} alt="Action - remove tag"/>
-                </div>
-            </div>)
-        }
+        <div className="tab-tags">
+            {
+                tags.map(it => <div tabIndex={0} className="tab-tag" key={tags.indexOf(it)}>
+                    <p className="tab-tag-name">{it}</p>
+                    <div role="button" className="remove-icon" onClick={() => removeTag(it)}>
+                        <img src={removeIcon} alt="Remove tag"/>
+                    </div>
+                </div>)
+            }
         </div>
-
-        <button onClick={clearAllTags} className="clear-button">Clear</button>
-
+        <button onClick={() => setTags([])} className="clear-button">Clear</button>
     </div>
-
 
     return (
         <div className="app">
             <div className="header">
-                <img className="bg-header" src={BGHeader} alt=""></img>
+                <img className="bg-header" src={BGHeader} alt="" aria-hidden="true"></img>
             </div>
             <div className="listings">
-                {
-                    tags.length > 0 ? filterTab : <div className="empty-tab"></div>
-                }
+                {tags.length > 0 ? filterTab : <div className="empty-tab"></div>}
                 {
                     cleanData().map(it => <div key={it.id} className="listing">
 
-                        <Listing
+                        <ListingInfo
                             logo={it.logo}
                             company={it.company}
                             position={it.position}
-                            languages={it.languages}
-                            tools={it.tools}
                             contract={it.contract}
                             featured={it.featured}
-                            level={it.level}
                             location={it.location}
                             new={it.new}
                             postedAt={it.postedAt}
-                            role={it.role}
                             tags={[it.position, it.role, ...it.languages, ...it.tools]}/>
 
                         <div className="tags">
                             <Tag onAdd={() => addTag(it.role)} text={it.role}/>
                             <Tag onAdd={() => addTag(it.level)} text={it.level}/>
-                            {
-                                it.languages.map((it, index) => <Tag
-                                    onAdd={() => addTag(it)} key={index} text={it}/>)
-                            }
-                            {
-                                it.tools.map((it, index) => <Tag onAdd={() => addTag(it)}
-                                                                 key={index} text={it}/>)
-                            }
-
+                            {it.languages.map((it, index) => <Tag
+                                onAdd={() => addTag(it)} key={index} text={it}/>)}
+                            {it.tools.map((it, index) => <Tag onAdd={() => addTag(it)}
+                                                              key={index} text={it}/>)}
                         </div>
                     </div>)
                 }

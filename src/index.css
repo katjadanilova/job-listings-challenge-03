@@ -15,4 +15,9 @@ p {
   margin: 0;
 }
 
+@media (max-width: 400px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 

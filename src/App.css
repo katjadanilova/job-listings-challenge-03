@@ -35,6 +35,13 @@
     height: 68px;
 }
 
+.tab-tags {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+}
+
 .tab-tag {
     display: flex;
 }
@@ -48,7 +55,7 @@
 
 .remove-icon {
     border-radius: 0 5px 5px 0;
-    padding:0.5em;
+    padding: 0.5em;
     background-color: var(--tag-color);
     display: flex;
     align-items: center;
@@ -68,13 +75,13 @@
 }
 
 .clear-button:hover {
-    text-decoration:underline;
+    text-decoration: underline;
     color: var(--tag-color);
     cursor: pointer;
 }
 
-.listings{
-    margin-top:124px;
+.listings {
+    margin-top: 124px;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -82,7 +89,7 @@
 }
 
 .listing {
-    width: 1000px;
+    min-width: 800px;
     display: flex;
     background-color: white;
     border-radius: 8px;
@@ -126,7 +133,6 @@
     color: var(--tag-color);
     cursor: pointer;
 }
-
 
 .company {
     display: flex;
@@ -178,5 +184,52 @@
     background-color: var(--tag-color);
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 800px) {
+
+    .app {
+        max-width: 100%;
+    }
+
+    .listings {
+        gap: 2em;
+    }
+
+    .listing {
+        min-width: 300px;
+        max-width: 100%;
+        margin: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+        position: relative;
+        padding-top: 3em;
+    }
+
+    .logo {
+        position: absolute;
+        top: -26px;
+    }
+
+    .logo img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .tags {
+        max-width: 100%;
+        flex-wrap: wrap;
+        padding-top: 1em;
+        border-top: solid 1px var(--dark-grey);
+    }
+
+    .filter-tab {
+        margin: 1em;
+    }
+
+    .tab-tags {
+        flex-wrap: wrap;
+    }
 }
 
