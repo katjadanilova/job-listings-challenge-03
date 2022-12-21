@@ -9,10 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-
-        <div className="header">
-            <img className="bg-header" src={BGHeader} alt=""></img>
-        </div>
         <App/>
     </React.StrictMode>
 );

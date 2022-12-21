@@ -11,9 +11,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2em;
 }
 
-.listings {
+.header {
+    background-color: var(--tag-color);
+    position: absolute;
+    top: 0;
+}
+
+.filter-tab {
+    background-color: white;
+    display: flex;
+    padding: 1.2em;
+    box-shadow: rgba(36, 114, 131, 0.09) 0 4px 12px;
+    border-radius: 8px;
+    gap: 1em;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.empty-tab {
+    height: 68px;
+}
+
+.tab-tag {
+    display: flex;
+}
+
+.tab-tag-name {
+    color: var(--tag-color);
+    background-color: var(--filter-tablets-color);
+    padding: 0.5em;
+    border-radius: 5px 0 0 5px;
+}
+
+.remove-icon {
+    border-radius: 0 5px 5px 0;
+    padding:0.5em;
+    background-color: var(--tag-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remove-icon:hover {
+    background-color: var(--very-dark-grey);
+}
+
+.clear-button {
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    color: var(--dark-grey);
+    font-weight: bold;
+}
+
+.clear-button:hover {
+    text-decoration:underline;
+    color: var(--tag-color);
+    cursor: pointer;
+}
+
+.listings{
+    margin-top:124px;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -46,7 +107,6 @@
     border-radius: 8px 0 0 8px;
 }
 
-
 .information {
     display: flex;
     gap: 1em;
@@ -58,15 +118,14 @@
     flex-direction: column;
 }
 
-.details h3{
+.details h3 {
     margin: 0;
 }
 
 .details h3:hover {
-   color: var(--tag-color);
+    color: var(--tag-color);
     cursor: pointer;
 }
-
 
 
 .company {
@@ -87,8 +146,8 @@
     font-size: 0.8em;
 }
 
-.featured-tag{
-    background-color: black;
+.featured-tag {
+    background-color: var(--very-dark-grey);
     color: white;
     padding: 0.5em;
     border-radius: 1em;
@@ -120,3 +179,4 @@
     color: white;
     cursor: pointer;
 }
+
