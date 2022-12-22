@@ -44,7 +44,7 @@ function ListingInfo(props: ListingProps) {
                     {props.new && <strong className="new-tag">NEW!</strong>}
                     {props.featured && <strong className="featured-tag">FEATURED</strong>}
                 </div>
-                <h3>{props.position}</h3>
+                <h1>{props.position}</h1>
                 <div className="other-details">
                     <p>{props.postedAt}</p>
                     <CircleIcon sx={{fontSize: "5px", color: "#d3d3d3"}}/>

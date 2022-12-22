@@ -125,11 +125,12 @@
     flex-direction: column;
 }
 
-.details h3 {
+.details h1 {
+    font-size: 1em;
     margin: 0;
 }
 
-.details h3:hover {
+.details h1:hover {
     color: var(--tag-color);
     cursor: pointer;
 }
